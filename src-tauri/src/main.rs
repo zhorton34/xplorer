@@ -32,20 +32,20 @@ use window_vibrancy::{
 lazy_static! {
     pub static ref ARGS_STRUCT: ArgMatches = {
         const VERSION: &str = env!("CARGO_PKG_VERSION");
-        ClapCommand::new("Xplorer")
+        ClapCommand::new("navi")
             .version(VERSION)
-            .about("Xplorer, customizable, modern file manager")
+            .about("Navigator, customizable, modern file manager")
             .arg(
                 Arg::new("reveal")
                     .short('r')
                     .long("reveal")
-                    .help("Reveal file in Xplorer")
+                    .help("Reveal file in Navigator")
                     .takes_value(false),
             )
             .subcommand(
                 ClapCommand::new("extensions")
                     .alias("ext")
-                    .about("Manage Xplorer extensions")
+                    .about("Manage Navigator extensions")
                     .subcommand(
                         ClapCommand::new("theme")
                             .about("Manage themes")
@@ -100,7 +100,7 @@ lazy_static! {
             )
             .arg(
                 Arg::new("dir")
-                    .help("Directories to open in Xplorer")
+                    .help("Directories to open in Navigator")
                     .multiple_values(true)
                     .takes_value(true),
             )
@@ -157,16 +157,16 @@ fn change_transparent_effect(effect: String, window: tauri::Window) {
 
     clear_blur(&window).unwrap();
     clear_acrylic(&window).unwrap();
-    if is_win_11(){ 
+    if is_win_11(){
         use window_vibrancy::clear_mica;
-        clear_mica(&window).unwrap(); 
+        clear_mica(&window).unwrap();
     }
     match effect.as_str() {
         "blur" => apply_blur(&window, Some((18, 18, 18, 125))).unwrap(),
         "acrylic" => apply_acrylic(&window, Some((18, 18, 18, 125))).unwrap(),
         "mica" => {
             use window_vibrancy::apply_mica;
-            if is_win_11(){ 
+            if is_win_11(){
                 apply_mica(&window).unwrap()
             }
         },

@@ -11,7 +11,7 @@ pub struct StorageData {
 
 #[tauri::command]
 pub fn write_data(key: &str, value: serde_json::Value) {
-    let storage_dir = Path::new(&local_data_dir().unwrap()).join("Xplorer");
+    let storage_dir = Path::new(&local_data_dir().unwrap()).join("Navigator");
     if let Err(e) = fs::create_dir_all(&storage_dir) {
         eprintln!("Failed to create dirs: {:?}", e);
     }
@@ -24,7 +24,7 @@ pub fn write_data(key: &str, value: serde_json::Value) {
 
 #[tauri::command]
 pub fn read_data(key: &str) -> Result<StorageData, String> {
-    let storage_dir = Path::new(&local_data_dir().unwrap()).join("Xplorer");
+    let storage_dir = Path::new(&local_data_dir().unwrap()).join("Navigator");
     let mut status = true;
     let data: String;
     match fs::read(storage_dir.join(key)) {
@@ -52,7 +52,7 @@ pub fn read_data(key: &str) -> Result<StorageData, String> {
 
 #[tauri::command]
 pub fn delete_storage_data(key: String) {
-    let storage_dir = Path::new(&local_data_dir().unwrap()).join("Xplorer");
+    let storage_dir = Path::new(&local_data_dir().unwrap()).join("Navigator");
 
     if let Ok(_) = fs::remove_file(storage_dir.join(key)) {}
 }

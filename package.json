@@ -1,14 +1,14 @@
 {
-	"name": "xplorer",
-	"description": "Xplorer, a customizable, modern file manager",
-	"version": "0.3.1",
-	"author": "Justin Maximillian Kimlim <kimlimjustin@gmail.com>",
+	"name": "navigator",
+	"description": "Anaconda Navigator, a customizable, modern data science platform",
+	"version": "0.0.1",
+	"author": "Zak Horton <zhorton@anaconda.com.com>",
 	"icon": "build/icon.icns",
 	"private": true,
-	"homepage": "https://xplorer.space",
+	"homepage": "https://conda.app",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/kimlimjustin/xplorer.git"
+		"url": "https://github.com/zhorton34/xplorer.git"
 	},
 	"os": [
 		"darwin",

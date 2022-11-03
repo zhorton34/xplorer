@@ -16,7 +16,7 @@ export default async function handler(req: any, res: any) {
 		res.status(400).send('Invalid version');
 		return;
 	}
-	const reqUrl = new URL(`https://api.github.com/repos/kimlimjustin/xplorer/releases`);
+	const reqUrl = new URL(`https://api.github.com/repos/zhorton34/xplorer/releases`);
 	// Headers
 	const headers: HeadersInit = { Accept: 'application/vnd.github.preview' };
 	if (GITHUB_TOKEN && GITHUB_TOKEN.length > 0) {
